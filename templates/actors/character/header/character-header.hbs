@@ -1,0 +1,148 @@
+<section class="eod-character-header">
+    <div class="eod-portrait">
+        <img class="eod-portrait-image" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <div class="eod-portrait-frame" aria-hidden="true">
+            <img class="eod-frame-corner eod-frame-corner-tl" src="modules/eram-os-deuses-character-sheet-t20/assets/frames/portrait/portrait-corner.png" alt="" />
+            <img class="eod-frame-corner eod-frame-corner-tr" src="modules/eram-os-deuses-character-sheet-t20/assets/frames/portrait/portrait-corner.png" alt="" />
+            <img class="eod-frame-corner eod-frame-corner-bl" src="modules/eram-os-deuses-character-sheet-t20/assets/frames/portrait/portrait-corner.png" alt="" />
+            <img class="eod-frame-corner eod-frame-corner-br" src="modules/eram-os-deuses-character-sheet-t20/assets/frames/portrait/portrait-corner.png" alt="" />
+
+            <span class="eod-frame-edge eod-frame-edge-left"></span>
+            <span class="eod-frame-edge eod-frame-edge-right"></span>
+
+            <img class="eod-frame-anchor" src="modules/eram-os-deuses-character-sheet-t20/assets/frames/portrait/portrait-anchor.png" alt="" />
+        </div>
+    </div>
+
+    <div class="eod-identity">
+        <label class="eod-field eod-field-name">
+            <span class="eod-field-label">NOME</span>
+            <input class="eod-name" type="text" name="name" value="{{actor.name}}" placeholder="Nome" />
+        </label>
+
+        <div class="eod-identity-summary">
+            <span class="eod-field eod-field-race">
+                <span class="eod-field-label">RAÇA</span>
+                <span class="eod-identity-race">
+                    {{#if actor.race}}
+                        <span class="item" data-item-id="{{actor.race._id}}">
+                            <a class="item-control" title="Editar">{{actor.race.name}}</a>
+                        </span>
+                    {{else}}
+                        <a class="item-control add-raca" title="Adicionar raça">
+                            Adicionar
+                        </a>
+                    {{/if}}
+                </span>
+            </span>
+
+            <span class="eod-field eod-field-origin">
+                <span class="eod-field-label">ORIGEM</span>
+                <input type="text"
+                       name="system.detalhes.origem"
+                       value="{{system.detalhes.origem}}"
+                       placeholder="Origem"
+                       title="Origem">
+            </span>
+
+            <span class="eod-field eod-field-classes">
+                <span class="eod-field-label">CLASSES</span>
+                <span class="eod-identity-classes char-class flexrow">
+                {{#each actor.classes}}
+                    <span class="item" data-item-id="{{_id}}">
+                        <a class="item-control" title="Editar">
+                            {{abbr}} {{system.niveis}}
+                        </a>
+                    </span>
+                {{/each}}
+
+                <a class="item-control class-config add-classe"
+                   title="Adicionar classe">
+                    <i class="fas fa-plus"></i>
+                </a>
+                </span>
+            </span>
+
+            <span class="eod-field eod-field-divinity">
+                <span class="eod-field-label">DIVINDADE</span>
+                <input type="text"
+                       name="system.detalhes.divindade"
+                       value="{{system.detalhes.divindade}}"
+                       placeholder="Divindade"
+                       title="Divindade">
+            </span>
+        </div>
+
+        <div class="eod-identity-traits">
+            <div class="eod-header-trait eod-header-trait-size">
+                <span class="eod-field-label">TAMANHO</span>
+                <select class="actor-size" name="system.tracos.tamanho" title="Tamanho">
+                    <option value="min" {{#if (eq system.tracos.tamanho "min")}}selected{{/if}}>Minúsculo</option>
+                    <option value="peq" {{#if (eq system.tracos.tamanho "peq")}}selected{{/if}}>Pequeno</option>
+                    <option value="med" {{#if (eq system.tracos.tamanho "med")}}selected{{/if}}>Médio</option>
+                    <option value="gra" {{#if (eq system.tracos.tamanho "gra")}}selected{{/if}}>Grande</option>
+                    <option value="eno" {{#if (eq system.tracos.tamanho "eno")}}selected{{/if}}>Enorme</option>
+                    <option value="col" {{#if (eq system.tracos.tamanho "col")}}selected{{/if}}>Colossal</option>
+                </select>
+            </div>
+
+            <div class="eod-header-trait">
+                <a class="config-button" data-action="movement" data-target="system.attributes.movement" title="Configurar Deslocamento">
+                    <span class="eod-field-label">DESLOCAMENTO</span>
+                </a>
+                <ul class="trait-list">
+                    {{#each movement as |move key|}}
+                        <li class="speedtag {{key}}">{{localize move}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <div class="eod-header-trait">
+                <a class="trait-selector" data-options="senses" data-target="system.attributes.sentidos" title="Configurar Sentidos">
+                    <label class="eod-field-label">Sentidos</label>
+                </a>
+                <ul class="trait-list">
+                    {{#each @root.senses.value as |v k|}}
+                        <li class="tag {{k}}">{{localize v}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <aside class="eod-level bureau-header-exp">
+        <div class="eod-level-controls charlevel flexrow">
+            <a class="config-button eod-level-resource"
+               data-action="resources"
+               title="Editar recursos">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </a>
+
+            <a class="config-button eod-level-rest"
+               data-action="rest"
+               title="Descanso">
+                <i class="fa-solid fa-bed"></i>
+            </a>
+
+            <div class="level config-button eod-level-value">
+                Nível {{system.attributes.nivel.value}}
+            </div>
+        </div>
+
+        {{#unless disableExperience}}
+        <div class="experience eod-experience flexrow">
+            <input type="text"
+                   placeholder="0"
+                   data-dtype="Number"
+                   name="system.attributes.nivel.xp.value"
+                   value="{{system.attributes.nivel.xp.value}}">
+            <span class="sep">/</span>
+            <span class="max-xp">{{system.attributes.nivel.xp.proximo}}</span>
+        </div>
+
+        <div class="xpbar eod-xpbar">
+            <span class="bar" style="width: {{system.attributes.nivel.xp.pct}}%"></span>
+        </div>
+        {{/unless}}
+    </aside>
+</section>

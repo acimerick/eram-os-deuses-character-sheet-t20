@@ -1,0 +1,115 @@
+{
+  "version": "0.3.5",
+  "stage": "EOD-3.1",
+  "assets": [
+    {
+      "path": "assets/backgrounds/map-overlay.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/backgrounds/paper-noise.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/backgrounds/parchment-dark.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/backgrounds/parchment.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/backgrounds/sky-sea.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/backgrounds/wood.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/campaign/campaign-ornament.svg",
+      "type": "svg"
+    },
+    {
+      "path": "assets/campaign/logo.svg",
+      "type": "svg"
+    },
+    {
+      "path": "assets/campaign/symbol.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/decorations/ink-stain.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/decorations/rope.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/decorations/seal.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/decorations/small-ornament.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/decorations/torn-paper.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/frames/divider.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/nautical/anchor.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/nautical/celestial-mark.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/nautical/compass-rose.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/nautical/compass.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/nautical/helm.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/nautical/star-detail.webp",
+      "type": "webp"
+    },
+    {
+      "path": "assets/nautical/star.svg",
+      "type": "svg"
+    },
+    {
+      "path": "assets/frames/portrait/portrait-corner.png",
+      "type": "png"
+    },
+    {
+      "path": "assets/frames/portrait/portrait-edge-v.png",
+      "type": "png"
+    },
+    {
+      "path": "assets/frames/portrait/portrait-anchor.png",
+      "type": "png"
+    }
+  ],
+  "campaign": {
+    "logo-light.svg": {
+      "path": "assets/campaign/logo-light.svg",
+      "role": "logo claro para cabeçalho náutico escuro"
+    }
+  },
+  "backgrounds": [
+    "assets/backgrounds/sky-sea-banner.webp"
+  ]
+}

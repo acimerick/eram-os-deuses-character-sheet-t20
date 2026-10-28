@@ -1,0 +1,18 @@
+<section class="eod-magic">
+    <header class="eod-section-heading eod-magic-heading">
+        <div>
+            <span class="eod-section-kicker">ARCANO</span>
+            <h2>MAGIA</h2>
+        </div>
+    </header>
+
+    <div class="eod-magic-content">
+        {{#if actor.maiorCirculo}}
+            {{> "tormenta20.list-spells"}}
+        {{else}}
+            <div class="eod-magic-empty">
+                <span>Nenhum círculo de magia disponível.</span>
+            </div>
+        {{/if}}
+    </div>
+</section>

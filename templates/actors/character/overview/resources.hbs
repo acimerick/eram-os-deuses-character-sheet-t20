@@ -1,0 +1,73 @@
+<section class="eod-resources">
+    <h2>RECURSOS</h2>
+
+    <article class="eod-resource eod-resource-pv attribute health flexcol">
+        <h3>PONTOS DE VIDA</h3>
+        <div class="eod-resource-meter">
+            <div class="eod-resource-bar-wrap">
+                <div class="eod-resource-bar" aria-hidden="true">
+                    <span class="eod-resource-bar-fill" style="width: {{eodPct system.attributes.pv.value system.attributes.pv.max}}%"></span>
+                </div>
+                <div class="eod-resource-values attribute-value multiple flexrow">
+                    <input type="number" data-dtype="Number" name="system.attributes.pv.value"
+                           value="{{system.attributes.pv.value}}" max="{{system.attributes.pv.max}}" placeholder="0">
+                    <span>/</span>
+                    <input type="number" name="system.attributes.pv.max"
+                           value="{{system.attributes.pv.max}}" disabled placeholder="0">
+                </div>
+            </div>
+            <footer class="eod-resource-temp attribute-footer">
+                <label>TEMP</label>
+                <input type="number" data-dtype="Number" name="system.attributes.pv.temp"
+                       value="{{system.attributes.pv.temp}}" placeholder="0">
+            </footer>
+        </div>
+    </article>
+
+    <article class="eod-resource eod-resource-pm attribute mana flexcol">
+        <h3>PONTOS DE MANA</h3>
+        <div class="eod-resource-meter">
+            <div class="eod-resource-bar-wrap">
+                <div class="eod-resource-bar" aria-hidden="true">
+                    <span class="eod-resource-bar-fill" style="width: {{eodPct system.attributes.pm.value system.attributes.pm.max}}%"></span>
+                </div>
+                <div class="eod-resource-values attribute-value multiple flexrow">
+                    <input type="number" data-dtype="Number" name="system.attributes.pm.value"
+                           value="{{system.attributes.pm.value}}" max="{{system.attributes.pm.max}}" placeholder="0">
+                    <span>/</span>
+                    <input type="number" name="system.attributes.pm.max"
+                           value="{{system.attributes.pm.max}}" disabled placeholder="0">
+                </div>
+            </div>
+            <footer class="eod-resource-temp attribute-footer">
+                <label>TEMP</label>
+                <input type="number" data-dtype="Number" name="system.attributes.pm.temp"
+                       value="{{system.attributes.pm.temp}}" placeholder="0">
+            </footer>
+        </div>
+    </article>
+
+    <article class="eod-resource eod-resource-defense attribute defense">
+        <h3>DEFESA</h3>
+        <div class="eod-resource-value attribute-value eod-defense-value"
+             data-tooltip="{{fieldBonuses 'system.attributes.defesa.bonus'}}"
+             data-tooltip-direction="UP">
+            {{system.attributes.defesa.value}}
+        </div>
+        <footer class="eod-defense-controls attribute-footer">
+            <select name="system.attributes.defesa.atributo"
+                    value="{{system.attributes.defesa.atributo}}" title="Bônus Temporário">
+                <option value=""></option>
+                <option value="for" {{#if (eq system.attributes.defesa.atributo "for")}}selected{{/if}}>For</option>
+                <option value="des" {{#if (eq system.attributes.defesa.atributo "des")}}selected{{/if}}>Des</option>
+                <option value="con" {{#if (eq system.attributes.defesa.atributo "con")}}selected{{/if}}>Con</option>
+                <option value="int" {{#if (eq system.attributes.defesa.atributo "int")}}selected{{/if}}>Int</option>
+                <option value="sab" {{#if (eq system.attributes.defesa.atributo "sab")}}selected{{/if}}>Sab</option>
+                <option value="car" {{#if (eq system.attributes.defesa.atributo "car")}}selected{{/if}}>Car</option>
+            </select>
+            <input type="number" data-dtype="Number" name="system.attributes.defesa.outros"
+                   value="{{system.attributes.defesa.outros}}" title="Outros" placeholder="0">
+        </footer>
+    </article>
+
+</section>

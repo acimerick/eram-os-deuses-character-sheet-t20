@@ -1,0 +1,238 @@
+/* EOD-3.5 — Recursos compactos:
+ * Vida/Mana ampliadas à esquerda | Defesa ocupando a coluna direita.
+ * Deslocamento e Iniciativa permanecem no cabeçalho da ficha.
+ */
+
+.eod-resources {
+    min-width: 0;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto minmax(4.6rem, auto) minmax(4.6rem, auto);
+    gap: 0.55rem;
+    align-content: start;
+    padding: 0.65rem 0.8rem 0.75rem;
+    border: 1px solid rgba(63, 57, 43, 0.34);
+    background: linear-gradient(rgba(255,255,255,0.08), rgba(105,92,68,0.035));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.16);
+}
+
+.eod-resources > h2 { grid-column: 1 / -1; }
+
+.eod-resource {
+    min-width: 0;
+    margin: 0;
+    padding: 0.5rem 0.62rem 0.55rem;
+    border: 1px solid rgba(63, 57, 43, 0.22);
+    background: rgba(255,255,255,0.12);
+}
+
+.eod-resource h3 {
+    margin: 0 0 0.28rem;
+    font-size: 0.64rem;
+    line-height: 1.05;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* PV/PM: ficam deliberadamente mais estreitos que Defesa. */
+.eod-resource-pv { grid-column: 1; grid-row: 2; }
+.eod-resource-pm { grid-column: 1; grid-row: 3; }
+
+.eod-resource-meter {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.45rem;
+    align-items: end;
+}
+
+.eod-resource-bar-wrap { min-width: 0; width: 100%; }
+
+.eod-resource-bar {
+    position: relative;
+    width: 100%;
+    height: 0.82rem;
+    overflow: hidden;
+    border: 1px solid rgba(63,57,43,0.34);
+    border-radius: 0.08rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0.32), rgba(63,57,43,0.14));
+    box-shadow:
+        inset 0 1px 2px rgba(34,28,20,0.22),
+        inset 0 -1px 0 rgba(255,255,255,0.30),
+        0 1px 1px rgba(34,28,20,0.12);
+}
+
+.eod-resource-bar::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,0.38), rgba(255,255,255,0.02) 48%, rgba(0,0,0,0.08));
+    border-radius: 0.04rem;
+}
+
+.eod-resource-bar-fill {
+    position: relative;
+    z-index: 1;
+    display: block;
+    height: 100%;
+    min-width: 0;
+    max-width: 100%;
+    background: linear-gradient(180deg, color-mix(in srgb, currentColor 72%, white), currentColor 52%, color-mix(in srgb, currentColor 78%, black));
+    opacity: 0.72;
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,0.48),
+        inset 0 -2px 2px rgba(0,0,0,0.18),
+        1px 0 1px rgba(0,0,0,0.10);
+}
+
+.eod-resource-pv .eod-resource-bar { color: #7f2c2c; }
+.eod-resource-pm .eod-resource-bar { color: #285b72; }
+
+.eod-resource-values {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.3rem;
+    margin-top: 0.24rem;
+    white-space: nowrap;
+}
+
+.eod-resource-values input {
+    width: 2.8rem;
+    height: 1.3rem;
+    padding: 0.05rem 0.1rem;
+    text-align: center;
+    font-weight: 800;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.eod-resource-values span { opacity: 0.55; }
+
+.eod-resource-temp {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.18rem;
+    min-width: 3rem;
+}
+
+.eod-resource-temp label {
+    font-size: 0.48rem;
+    letter-spacing: 0.1em;
+    opacity: 0.58;
+}
+
+.eod-resource-temp input {
+    width: 2.15rem;
+    height: 1.2rem;
+    padding: 0.05rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Defesa ocupa a coluna central inteira, acompanhando as duas linhas de PV/PM. */
+.eod-resource-defense {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    position: relative;
+    min-height: 0;
+    overflow: visible;
+    padding: 0.5rem 0.62rem;
+}
+
+.eod-resource-defense h3 {
+    position: absolute;
+    left: 0.62rem;
+    top: 0.52rem;
+    margin: 0;
+    z-index: 5;
+}
+
+.eod-defense-value {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 4.35rem;
+    height: 3.95rem;
+    display: grid;
+    place-items: center;
+    z-index: 1;
+    font-size: 1.75rem;
+    font-weight: 800;
+    isolation: isolate;
+    color: #2d2920;
+    pointer-events: auto;
+    cursor: help;
+}
+
+.eod-defense-value::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    clip-path: polygon(50% 0, 91% 12%, 86% 61%, 74% 80%, 50% 100%, 26% 80%, 14% 61%, 9% 12%);
+    background: rgba(105, 92, 68, 0.26);
+    box-shadow: inset 0 0 0 1px rgba(63,57,43,0.30);
+    pointer-events: none;
+}
+
+.eod-defense-value::after {
+    content: "";
+    position: absolute;
+    inset: 0.14rem;
+    z-index: -1;
+    clip-path: polygon(50% 0, 88% 13%, 83% 59%, 71% 78%, 50% 96%, 29% 78%, 17% 59%, 12% 13%);
+    background: rgba(255,255,255,0.50);
+    pointer-events: none;
+}
+
+.eod-defense-controls {
+    position: absolute;
+    right: 0.62rem;
+    top: 0.42rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.28rem;
+    z-index: 6;
+}
+
+.eod-defense-controls select { width: 3.5rem; }
+.eod-defense-controls input { width: 2.35rem; }
+.eod-defense-controls select,
+.eod-defense-controls input {
+    min-width: 0;
+    height: 1.3rem;
+}
+
+/* Deslocamento e Iniciativa foram movidos para o cabeçalho. */
+
+@media (max-width: 760px) {
+    .eod-resources {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: auto auto auto;
+    }
+
+    .eod-resource-pv { grid-column: 1; grid-row: 2; }
+    .eod-resource-pm { grid-column: 1; grid-row: 3; }
+    .eod-resource-defense { grid-column: 2; grid-row: 2 / 4; }
+}
+
+@media (max-width: 520px) {
+    .eod-resources {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+    }
+
+    .eod-resource-pv,
+    .eod-resource-pm,
+    .eod-resource-defense {
+        grid-column: 1;
+        grid-row: auto;
+    }
+}

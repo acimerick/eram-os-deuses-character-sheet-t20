@@ -1,0 +1,84 @@
+<details class="eod-traits" open>
+    <summary class="eod-traits-summary">
+        <span class="eod-traits-title">CARACTERÍSTICAS</span>
+        <span class="eod-traits-toggle" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></span>
+    </summary>
+
+    <div class="eod-traits-grid">
+        <h3>OUTRAS CARACTERÍSTICAS</h3>
+
+        <div class="eod-trait-field">
+            <a class="config-button" data-action="resistance" data-target="system.tracos.resistencias" title="Configurar Resistências">
+                <label>Resistências</label>
+            </a>
+            <ul class="trait-list">
+                {{#each system.tracos.resistencias as |v k|}}
+                    {{#if v.imunidade}}
+                        <li class="tag {{k}}" title="{{localize 'T20.DamImm'}}">{{lookup @root.config.damageTypes k}} <i class="fas fa-fist-raised"></i></li>
+                    {{else if v.danoPorDado}}
+                        <li class="tag {{k}}" title="{{localize 'T20.DamPerDie'}}">{{lookup @root.config.damageTypes k}} <i class="fa-solid fa-dice"></i></li>
+                    {{else if v.vulnerabilidade}}
+                        <li class="tag {{k}}" title="{{localize 'T20.DamVuln'}}">{{lookup @root.config.damageTypes k}} <i class="fas fa-skull"></i></li>
+                    {{else if (gt v.excecao 0)}}
+                        <li class="tag {{k}}">{{v.excecao}}/{{lookup @root.config.damageTypes k}}</li>
+                    {{else if (gt v.value 0)}}
+                        <li class="tag {{k}}">{{lookup @root.config.damageTypes k}} {{v.value}}</li>
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="eod-trait-field">
+            <a class="trait-selector ic" data-options="conditionTypes" data-target="system.tracos.ic" title="Configurar Imunidades a Condições">
+                <label>Imunidade a Condições</label>
+            </a>
+            <ul class="trait-list">
+                {{#each system.tracos.ic.selected as |v k|}}
+                    <li class="tag {{k}}">{{v}}</li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <h3>PROFICIÊNCIAS</h3>
+
+        {{#if @root.enableLanguages}}
+            <div class="eod-trait-field">
+                <a class="trait-selector" data-options="idiomas" data-target="system.tracos.idiomas" title="Configurar Idiomas">
+                    <label>Idiomas</label>
+                </a>
+                <ul class="trait-list">
+                    {{#each system.tracos.idiomas.selected as |v k|}}
+                        <li class="tag {{k}}">{{v}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        {{/if}}
+
+        <div class="eod-trait-field">
+            <a class="trait-selector" data-options="profArmas" data-target="system.tracos.profArmas" title="Configurar Proficiência em Armas">
+                <label>Armas</label>
+            </a>
+            <ul class="trait-list">
+                {{#each system.tracos.profArmas.selected as |v k|}}
+                    <li class="tag {{k}}">{{localize v}}</li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="eod-trait-field">
+            <a class="trait-selector armaduras" data-options="profArmaduras" data-target="system.tracos.profArmaduras" title="Configurar Proficiência em Armaduras">
+                <label>Armaduras</label>
+            </a>
+            <ul class="trait-list">
+                {{#each system.tracos.profArmaduras.selected as |v k|}}
+                    <li class="tag {{k}}">{{localize v}}</li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="eod-trait-notes">
+            <label>Informações</label>
+            <textarea name="system.detalhes.info" rows="6">{{system.detalhes.info}}</textarea>
+        </div>
+    </div>
+</details>

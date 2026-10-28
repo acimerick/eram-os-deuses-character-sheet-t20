@@ -1,0 +1,268 @@
+/* EOD — Magia
+ * A lógica de conjuração permanece na lista nativa do T20.
+ * Este arquivo trata somente da apresentação da lista, preservando
+ * .selectAtr, .update-cd, .item-create, data-circulo, data-custo,
+ * data-atrres, .preparation-toggle e .toggle-armor.
+ */
+
+.eod-magic {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.eod-magic-content {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+}
+
+.eod-magic-content > .list-spells {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Cabeçalho da CD de Magias. */
+.eod-magic-content > .item-list {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.eod-magic-content > .item-list > .item-header:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    min-height: 2.55rem;
+    padding: 0.4rem 0.65rem;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(70, 55, 35, 0.35);
+    border-bottom: 2px solid rgba(70, 55, 35, 0.5);
+    background: rgba(70, 55, 35, 0.08);
+    font-weight: 700;
+}
+
+.eod-magic-content .selectAtr {
+    width: auto;
+    min-width: 8.5rem;
+    max-width: 13rem;
+    margin: 0;
+    padding: 0.15rem 0.3rem;
+}
+
+.eod-magic-content .update-cd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    flex: 0 0 1.8rem;
+}
+
+/* Os círculos são o segundo nível da lista nativa. */
+.eod-magic-content > .item-list > .item-list {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.eod-magic-content > .item-list > .item-list > .item {
+    display: grid !important;
+    grid-template-columns: minmax(300px, 2fr) minmax(180px, 1.15fr) minmax(130px, 0.85fr) minmax(72px, auto);
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 2.65rem;
+    margin: 0;
+    padding: 0.3rem 0.5rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(70, 55, 35, 0.18);
+}
+
+/* Cabeçalho de cada círculo. */
+.eod-magic-content > .item-list > .item-list > .item-header {
+    min-height: 2.3rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    border-top: 1px solid rgba(70, 55, 35, 0.28);
+    border-bottom: 2px solid rgba(70, 55, 35, 0.45);
+    background: rgba(70, 55, 35, 0.06);
+    font-weight: 700;
+}
+
+.eod-magic-content > .item-list > .item-list > .item:not(.item-header):hover {
+    background: rgba(90, 65, 35, 0.08);
+}
+
+.eod-magic-content .item-name,
+.eod-magic-content .item-type,
+.eod-magic-content .item-activation,
+.eod-magic-content .item-controls {
+    min-width: 0;
+}
+
+.eod-magic-content .item-name {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    overflow: hidden;
+}
+
+.eod-magic-content .item-name label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.eod-magic-content .item-image {
+    flex: 0 0 2rem;
+    width: 2rem;
+    height: 2rem;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(60, 45, 30, 0.35);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+.eod-magic-content .item-type,
+.eod-magic-content .item-activation {
+    padding: 0 0.4rem;
+    overflow: hidden;
+    line-height: 1.2;
+}
+
+.eod-magic-content .item-type,
+.eod-magic-content .item-activation {
+    font-size: 0.82rem;
+}
+
+.eod-magic-content .item-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.2rem;
+    min-height: 2rem;
+}
+
+.eod-magic-content .item-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.8rem;
+    min-height: 1.8rem;
+}
+
+.eod-magic-content .item-control.item-create {
+    width: auto;
+    padding: 0 0.35rem;
+    gap: 0.25rem;
+}
+
+.eod-magic-content .preparation-toggle,
+.eod-magic-content .toggle-armor {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.8rem;
+    min-height: 1.8rem;
+}
+
+.eod-magic-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10rem;
+    border-top: 1px solid rgba(70, 55, 35, 0.3);
+    border-bottom: 1px solid rgba(70, 55, 35, 0.3);
+    background: rgba(70, 55, 35, 0.04);
+    font-style: italic;
+}
+
+@media (max-width: 900px) {
+    .eod-magic-content > .item-list > .item-list > .item {
+        grid-template-columns: minmax(220px, 2fr) minmax(140px, 1.1fr) minmax(105px, 0.8fr) 58px;
+    }
+}
+
+@media (max-width: 700px) {
+    .eod-magic-content > .item-list > .item-list > .item {
+        grid-template-columns: minmax(180px, 2fr) minmax(120px, 1.1fr) 58px;
+    }
+
+    .eod-magic-content .item-activation {
+        display: none;
+    }
+}
+
+/* REV.19 — os círculos de magia precisam de agrupamento, não de uma caixa
+ * contínua. O cabeçalho identifica o círculo e as linhas inferiores separam
+ * os feitiços sobre o mesmo papel da ficha. */
+.eod-magic-content > .item-list > .item-list {
+    margin: 0 0 0.65rem;
+    border-top: 1px solid rgba(91, 76, 51, 0.22);
+}
+
+.eod-magic-content > .item-list > .item-list > .item:not(.item-header) {
+    border-bottom: 1px solid rgba(91, 76, 51, 0.18) !important;
+}
+
+
+/* REV.20 — superfície de papel: a lista não deve receber a caixa cinza do sistema. */
+.tormenta20.sheet.actor.eod-sheet .eod-magic-content .item-list {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+
+/* REV.21 — o partial nativo list-spells não tem wrapper .list-spells: a lista
+ * fica direto em .eod-magic-content. O cabeçalho de cada círculo segue a
+ * identidade dos grupos da aba Poderes (faixa tonal, bordas e título
+ * sublinhado em caixa alta). */
+.tormenta20.sheet.actor.eod-sheet .eod-magic-content > .item-list > .item-list > .item-header {
+    min-height: 2.25rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-top: 1px solid rgba(70, 55, 35, 0.38);
+    border-bottom: 2px solid rgba(70, 55, 35, 0.48);
+    background: rgba(70, 55, 35, 0.07);
+    font-size: 0.74rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.tormenta20.sheet.actor.eod-sheet .eod-magic-content > .item-list > .item-list > .item-header > .item-name {
+    justify-self: start;
+    padding-bottom: 0.1rem;
+    border-bottom: 1px solid rgba(40, 30, 20, 0.8);
+    font-size: 0.86rem;
+    letter-spacing: 0.07em;
+    overflow: visible;
+}
+
+/* Conjuradores por preparação recebem uma coluna extra de marcação. */
+.eod-magic-content > .item-list > .item-list:has(.item-toggles) > .item {
+    grid-template-columns: 2.2rem minmax(260px, 2fr) minmax(160px, 1.15fr) minmax(120px, 0.85fr) minmax(72px, auto);
+}
+
+.eod-magic-content > .item-list > .item-list:has(.item-toggles) > .item > .item-name {
+    grid-column: 2;
+}

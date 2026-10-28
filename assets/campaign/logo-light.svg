@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 150" role="img" aria-label="Eram os Deuses">
+  <g fill="none" stroke="#d5aa63" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M35 77H150M610 77H725" stroke-width="2" opacity=".85"/>
+    <path d="M62 64l13 13-13 13M698 64l-13 13 13 13" stroke-width="1.5"/>
+    <circle cx="380" cy="77" r="52" stroke-width="2" opacity=".65"/>
+    <circle cx="380" cy="77" r="43" stroke-width="1" opacity=".8"/>
+    <path d="M380 18v118M321 77h118" stroke-width="1" opacity=".65"/>
+    <path d="M380 24l7 45 37 8-37 8-7 45-7-45-37-8 37-8z" fill="#d5aa63" stroke-width="1" opacity=".95"/>
+  </g>
+  <text x="380" y="75" text-anchor="middle" fill="#f0d39a" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="700" letter-spacing="1.5">ERAM OS DEUSES</text>
+  <text x="380" y="111" text-anchor="middle" fill="#d5aa63" font-family="Georgia, 'Times New Roman', serif" font-size="15" letter-spacing="5">MARES ANTIGOS · SEGREDOS ETERNOS</text>
+</svg>

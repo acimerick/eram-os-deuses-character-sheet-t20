@@ -1,0 +1,287 @@
+/* EOD — Inventário
+ * A aba reutiliza integralmente a lista nativa do T20 v1.5.015.
+ * Esta camada trata apenas a apresentação visual.
+ */
+
+.eod-inventory {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.eod-inventory-content {
+    width: 100%;
+    min-width: 0;
+}
+
+.eod-inventory-content > .inventory-currency,
+.eod-inventory-content > .inventory-list,
+.eod-inventory-content > .encumbrance {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Moedas */
+.eod-inventory-content > .inventory-currency {
+    margin-bottom: 0.75rem;
+    padding: 0.45rem 0.65rem;
+    border-top: 1px solid rgba(70, 55, 35, 0.35);
+    border-bottom: 1px solid rgba(70, 55, 35, 0.2);
+    background: rgba(70, 55, 35, 0.06);
+}
+
+.eod-inventory-content .currency {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.eod-inventory-content .currency-header {
+    flex: 0 0 auto;
+    margin-right: 0.25rem;
+}
+
+.eod-inventory-content .currency-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    min-width: 90px;
+}
+
+.eod-inventory-content .currency-item input {
+    width: 70px;
+    text-align: right;
+}
+
+/* Listas nativas de armas, equipamentos, consumíveis e tesouros. */
+.eod-inventory-content .inventory-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.eod-inventory-content .inventory-list > .item-list {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.eod-inventory-content .inventory-list > .item-list > .item {
+    display: grid !important;
+    grid-template-columns: minmax(260px, 1fr) 90px 90px minmax(72px, auto);
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 2.35rem;
+    margin: 0;
+    padding: 0.25rem 0.5rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(70, 55, 35, 0.16);
+}
+
+.eod-inventory-content .inventory-list > .item-list > .item-header {
+    min-height: 2.2rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    border-top: 1px solid rgba(70, 55, 35, 0.3);
+    border-bottom: 2px solid rgba(70, 55, 35, 0.45);
+    background: rgba(70, 55, 35, 0.07);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+}
+
+.eod-inventory-content .inventory-list > .item-list > .item:not(.item-header):hover {
+    background: rgba(90, 65, 35, 0.07);
+}
+
+.eod-inventory-content .item-name,
+.eod-inventory-content .item-qty,
+.eod-inventory-content .item-weight,
+.eod-inventory-content .item-controls,
+.eod-inventory-content .item-equipped {
+    min-width: 0;
+}
+
+.eod-inventory-content .item-name {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    overflow: hidden;
+}
+
+.eod-inventory-content .item-name label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.eod-inventory-content .item-image {
+    flex: 0 0 2rem;
+    width: 2rem;
+    height: 2rem;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(60, 45, 30, 0.35);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+.eod-inventory-content .item-qty,
+.eod-inventory-content .item-weight {
+    text-align: center;
+}
+
+.eod-inventory-content .item-qty input {
+    width: 55px;
+    text-align: center;
+}
+
+.eod-inventory-content .item-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.2rem;
+}
+
+.eod-inventory-content .item-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.8rem;
+    min-height: 1.8rem;
+}
+
+/* O controle de criação do list-general fica alinhado ao final da lista. */
+.eod-inventory-content .inventory-list .item-controls {
+    margin-top: 0.2rem;
+    padding: 0.25rem 0;
+}
+
+/* Carga */
+.eod-inventory-content > .encumbrance {
+    position: relative;
+    margin-top: 0.1rem;
+    padding: 0.4rem 0.55rem;
+    border-top: 1px solid rgba(70, 55, 35, 0.25);
+    background: rgba(70, 55, 35, 0.05);
+}
+
+.eod-inventory-content > .encumbrance .encumbrance-label {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.82rem;
+}
+
+@media (max-width: 900px) {
+    .eod-inventory-content .inventory-list > .item-list > .item {
+        grid-template-columns: minmax(190px, 1fr) 72px 72px minmax(58px, auto);
+    }
+}
+
+@media (max-width: 700px) {
+    .eod-inventory-content .inventory-list > .item-list > .item {
+        grid-template-columns: minmax(150px, 1fr) 62px 62px;
+    }
+
+    .eod-inventory-content .item-controls {
+        display: none;
+    }
+
+    .eod-inventory-content .currency {
+        flex-wrap: wrap;
+    }
+}
+
+/* REV.19 — cada categoria continua transparente, mas ganha uma borda de
+ * entrada e uma separação clara entre seus itens. Isso evita que armas,
+ * equipamentos e demais categorias pareçam uma única tabela. */
+.eod-inventory-content .inventory-list > .item-list {
+    border-top: 1px solid rgba(91, 76, 51, 0.22) !important;
+}
+
+.eod-inventory-content .inventory-list > .item-list > .item:not(.item-header) {
+    border-bottom: 1px solid rgba(91, 76, 51, 0.18) !important;
+}
+
+
+/* REV.20 — superfície de papel: a lista não deve receber a caixa cinza do sistema. */
+.tormenta20.sheet.actor.eod-sheet .eod-inventory-content .inventory-list > .item-list {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+
+/* REV.21 — cabeçalhos de categoria (Armas, Equipamento, Consumíveis,
+ * Tesouros) no mesmo padrão dos grupos da aba Poderes. As colunas finais
+ * têm largura fixa para Qtd/Esp./Equipado alinharem entre as categorias. */
+.tormenta20.sheet.actor.eod-sheet .eod-inventory-content .inventory-list > .item-list > .item-header {
+    min-height: 2.25rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-top: 1px solid rgba(70, 55, 35, 0.38);
+    border-bottom: 2px solid rgba(70, 55, 35, 0.48);
+    background: rgba(70, 55, 35, 0.07);
+    font-size: 0.74rem;
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.tormenta20.sheet.actor.eod-sheet .eod-inventory-content .inventory-list > .item-list > .item-header > .item-name {
+    justify-self: start;
+    padding-bottom: 0.1rem;
+    border-bottom: 1px solid rgba(40, 30, 20, 0.8);
+    font-size: 0.86rem;
+    letter-spacing: 0.07em;
+    overflow: visible;
+}
+
+.eod-inventory-content .inventory-list > .item-list > .item-header > .item-qty,
+.eod-inventory-content .inventory-list > .item-list > .item-header > .item-weight,
+.eod-inventory-content .inventory-list > .item-list > .item-header > .item-equipped {
+    text-align: center;
+}
+
+.eod-inventory-content .inventory-list > .item-list > .item {
+    grid-template-columns: minmax(220px, 1fr) 70px 70px 56px;
+}
+
+.eod-inventory-content .inventory-list > .item-list:has(> .item-header > .item-rolls) > .item {
+    grid-template-columns: minmax(220px, 2fr) minmax(150px, 1.2fr) 70px 70px 56px;
+}
+
+.eod-inventory-content .inventory-list > .item-list:has(> .item-header > .item-def) > .item {
+    grid-template-columns: minmax(220px, 2fr) minmax(110px, 1fr) 70px 70px 56px;
+}
+
+.eod-inventory-content .item-equipped {
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .eod-inventory-content .inventory-list > .item-list > .item,
+    .eod-inventory-content .inventory-list > .item-list:has(> .item-header > .item-rolls) > .item,
+    .eod-inventory-content .inventory-list > .item-list:has(> .item-header > .item-def) > .item {
+        grid-template-columns: minmax(140px, 1fr) repeat(4, minmax(44px, auto));
+    }
+}

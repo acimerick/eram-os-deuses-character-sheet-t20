@@ -1,0 +1,43 @@
+<form class="tormenta20 base eod-sheet" autocomplete="off">
+    <header class="eod-header">
+        {{> "eod.campaign-header"}}
+        {{> "eod.character-header"}}
+    </header>
+
+    <nav class="sheet-tabs tabs primary flexrow eod-navigation" data-group="primary">
+        <a class="item" data-tab="attributes"><i class="fa-solid fa-compass"></i><span>VISÃO</span></a>
+        <a class="item" data-tab="powers"><i class="fa-solid fa-star"></i><span>PODERES</span></a>
+        <a class="item" data-tab="spells"><i class="fa-solid fa-wand-magic-sparkles"></i><span>MAGIA</span></a>
+        <a class="item" data-tab="inventory"><i class="fa-solid fa-box-open"></i><span>INVENTÁRIO</span></a>
+        <a class="item" data-tab="journal"><i class="fa-solid fa-scroll"></i><span>HISTÓRICO</span></a>
+        <a class="item" data-tab="effects"><i class="fa-solid fa-wand-magic-sparkles"></i><span>EFEITOS</span></a>
+    </nav>
+
+    <section class="sheet-body eod-sheet-body">
+        <div class="tab attributes eod-tab" data-group="primary" data-tab="attributes">
+            {{> "eod.overview"}}
+        </div>
+
+
+        <div class="tab powers eod-tab" data-group="primary" data-tab="powers">
+            {{> "eod.powers"}}
+        </div>
+
+        <div class="tab spells eod-tab" data-group="primary" data-tab="spells">
+            {{> "eod.magic"}}
+        </div>
+
+        <div class="tab inventory eod-tab" data-group="primary" data-tab="inventory">
+            {{> "eod.inventory"}}
+        </div>
+
+        <div class="tab journal eod-tab" data-group="primary" data-tab="journal">
+            {{> "eod.history"}}
+        </div>
+
+        <!-- Utilities remain native and are intentionally not part of the primary navigation. -->
+        <div class="tab effects eod-tab" data-group="primary" data-tab="effects">
+            {{> "tormenta20.active-effects"}}
+        </div>
+    </section>
+</form>

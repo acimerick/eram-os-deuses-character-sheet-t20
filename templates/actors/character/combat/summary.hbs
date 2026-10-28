@@ -1,0 +1,14 @@
+<section class="eod-combat-summary-grid">
+    <article class="eod-combat-stat">
+        <span>DEFESA</span>
+        <strong>{{system.attributes.defesa.value}}</strong>
+    </article>
+    <article class="eod-combat-stat">
+        <span>DESLOCAMENTO</span>
+        <div class="eod-combat-movement">
+            {{#each movement as |move key|}}
+                <span class="speedtag {{key}}">{{localize move}}</span>
+            {{/each}}
+        </div>
+    </article>
+</section>

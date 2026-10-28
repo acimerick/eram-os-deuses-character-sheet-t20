@@ -1,0 +1,65 @@
+/* EOD — linguagem visual comum das listas de itens.
+ *
+ * As listas nativas do Tormenta20 recebem uma superfície cinza pelo CSS do
+ * sistema. Aqui a prioridade é devolver a superfície de papel da ficha:
+ * lista transparente, sem caixa externa e com linhas discretas separando
+ * os itens. A estrutura e os controles nativos permanecem intactos.
+ */
+
+/* Regra de alta especificidade para vencer o .tormenta20.sheet.actor
+ * .item-list do sistema, que aplica o fundo cinza nas listas nativas. */
+.tormenta20.sheet.actor.eod-sheet .eod-combat .item-list,
+.tormenta20.sheet.actor.eod-sheet .eod-powers-content .item-list,
+.tormenta20.sheet.actor.eod-sheet .eod-magic-content .item-list,
+.tormenta20.sheet.actor.eod-sheet .eod-inventory-content .item-list {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Itens: o separador inferior substitui a antiga caixa cinza como elemento
+ * principal de leitura da lista. */
+.tormenta20.sheet.actor.eod-sheet .eod-combat .item-list > .item:not(.item-header),
+.tormenta20.sheet.actor.eod-sheet .eod-powers-content .item-list > .item:not(.item-header),
+.tormenta20.sheet.actor.eod-sheet .eod-magic-content .item-list > .item:not(.item-header),
+.tormenta20.sheet.actor.eod-sheet .eod-inventory-content .item-list > .item:not(.item-header) {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(91, 76, 51, 0.20) !important;
+}
+
+/* Cabeçalho: apenas uma diferença tonal mínima, sem transformar a lista em
+ * um painel cinza. Magia e Inventário usam a faixa dos grupos de Poderes
+ * (ver magic.css e inventory.css). */
+.tormenta20.sheet.actor.eod-sheet .eod-combat .item-list > .item-header,
+.tormenta20.sheet.actor.eod-sheet .eod-powers-content .item-list > .item-header {
+    background: rgba(244, 235, 212, 0.22) !important;
+    background-color: rgba(244, 235, 212, 0.22) !important;
+    background-image: none !important;
+    border-radius: 0 !important;
+}
+
+.tormenta20.sheet.actor.eod-sheet .eod-combat .item-list > .item:not(.item-header):hover,
+.tormenta20.sheet.actor.eod-sheet .eod-powers-content .item-list > .item:not(.item-header):hover,
+.tormenta20.sheet.actor.eod-sheet .eod-magic-content .item-list > .item:not(.item-header):hover,
+.tormenta20.sheet.actor.eod-sheet .eod-inventory-content .item-list > .item:not(.item-header):hover {
+    background: rgba(244, 235, 212, 0.24) !important;
+    background-color: rgba(244, 235, 212, 0.24) !important;
+}
+
+/* Listas aninhadas (Magia e algumas categorias do Inventário) também ficam
+ * sobre o papel, sem criar uma segunda caixa. */
+.tormenta20.sheet.actor.eod-sheet .eod-magic-content .item-list .item-list,
+.tormenta20.sheet.actor.eod-sheet .eod-inventory-content .item-list .item-list {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}

@@ -1,0 +1,155 @@
+/* EOD 0.3.7 — EOD-3.3: Atributos + rosa dos ventos.
+ * Os seis atributos orbitam o centro visual da rosa, sem alterar bindings.
+ */
+
+.eod-attributes {
+    min-width: 0;
+    padding: 0.65rem 0.8rem 0.8rem;
+    border: 1px solid rgba(63, 57, 43, 0.34);
+    background:
+        linear-gradient(rgba(255,255,255,0.10), rgba(105,92,68,0.04));
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+    min-height: 0;
+}
+
+.eod-attributes-compass {
+    position: relative;
+    width: min(100%, 420px);
+    min-height: 300px;
+    margin: 0.05rem auto 0;
+    isolation: isolate;
+}
+
+/* A rosa dos ventos é o centro geométrico da composição. O asset real do
+ * Lote 2 já contém os anéis e a ornamentação; não desenhamos outro círculo
+ * por CSS para evitar a sensação de dois elementos sobrepostos. */
+.eod-compass-rose {
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 16%;
+    width: 36%;
+    transform: translateX(-50%);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    opacity: 0.58;
+    pointer-events: none;
+}
+
+.eod-compass-rose img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    filter: sepia(0.30) saturate(0.72);
+}
+
+/* Descrições laterais ficam fora do eixo dos valores. */
+.eod-compass-side {
+    position: absolute;
+    z-index: 0;
+    width: 4.8rem;
+    font-size: 0.42rem;
+    line-height: 1.4;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    opacity: 0.38;
+    text-align: center;
+    pointer-events: none;
+}
+
+.eod-compass-side-left { left: 0; }
+.eod-compass-side-right { right: 0; }
+.eod-compass-side-top { top: 30%; }
+.eod-compass-side-bottom { top: 68%; bottom: auto; }
+
+/*
+ * Os seis atributos orbitam a rosa em posições fixas e simétricas.
+ * As regras são deliberadamente explícitas/forçadas para não permitir que
+ * o grid legado do Tormenta20 ou regras genéricas de .ability reposicionem
+ * os elementos.
+ *
+ *             INT
+ *       SAB          CAR
+ *
+ *       CON          DES
+ *             FOR
+ */
+.eod-ability {
+    position: absolute !important;
+    z-index: 2;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 22% !important;
+    height: 22% !important;
+    min-width: 0;
+    min-height: 0;
+    padding: 0.18rem;
+    margin: 0 !important;
+    box-sizing: border-box;
+    text-align: center;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.eod-ability-int { left: 39% !important; top: 0.5% !important; }
+.eod-ability-sab { left: 9% !important; top: 19.5% !important; }
+.eod-ability-car { right: 9% !important; top: 19.5% !important; }
+.eod-ability-con { left: 9% !important; top: 56% !important; }
+.eod-ability-des { right: 9% !important; top: 56% !important; }
+.eod-ability-for { left: 39% !important; top: 77.5% !important; height: 19% !important; }
+
+.eod-ability-name {
+    margin: 0;
+    font-size: 0.78rem;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    font-weight: 800;
+    border-bottom: 1px solid rgba(63,57,43,0.55);
+    padding-bottom: 0.12rem;
+}
+
+.eod-ability-value {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 1.55rem;
+    line-height: 1;
+    font-weight: 800;
+}
+
+.eod-ability-base {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    width: 100%;
+    margin-top: 0.32rem;
+}
+
+.eod-ability-base label {
+    font-size: 0.55rem;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    opacity: 0.62;
+}
+
+.eod-ability-base input {
+    width: 2.55rem;
+    min-width: 0;
+    height: 1.25rem;
+    padding: 0.1rem 0.2rem;
+    text-align: center;
+}
+
+@media (max-width: 980px) {
+    .eod-compass-side { display: none; }
+    .eod-attributes-compass { width: min(100%, 420px); min-height: 300px; }
+    .eod-attributes { min-height: 380px; }
+}

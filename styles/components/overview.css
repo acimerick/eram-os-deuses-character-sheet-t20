@@ -1,0 +1,83 @@
+/* EOD-3.5 — Visão Geral em duas colunas.
+ *
+ * As duas colunas são independentes da altura uma da outra.
+ * Coluna esquerda: Atributos → Recursos → Características.
+ * Coluna direita: Perícias → Combate.
+ *
+ * Os blocos não são distribuídos por linhas compartilhadas. Isso evita que
+ * uma lista longa de Perícias faça a caixa de Atributos crescer junto com a
+ * coluna direita.
+ */
+
+.eod-overview {
+    width: 100%;
+    min-height: 100%;
+    padding: 0.8rem 0.9rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-sizing: border-box;
+}
+
+.eod-overview-main {
+    display: grid;
+    grid-template-columns: minmax(360px, 0.82fr) minmax(520px, 1.18fr);
+    gap: 0.75rem;
+    align-items: start;
+    min-height: 0;
+}
+
+.eod-overview-left,
+.eod-overview-right {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+}
+
+.eod-overview-left > *,
+.eod-overview-right > * {
+    min-width: 0;
+    min-height: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.eod-overview h2 {
+    position: relative;
+    margin: 0 0 0.5rem;
+    padding: 0 0 0.32rem;
+    font-size: 0.86rem;
+    line-height: 1;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 800;
+    border-bottom: 1px solid rgba(60, 55, 43, 0.45);
+}
+
+.eod-overview h2::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 2px;
+    margin-top: 0.3rem;
+    background: currentColor;
+    opacity: 0.72;
+}
+
+/* A largura intermediária continua preservando as duas colunas, mas reduz
+ * os mínimos para não forçar scroll horizontal desnecessário. */
+@media (max-width: 1180px) {
+    .eod-overview-main {
+        grid-template-columns: minmax(330px, 0.9fr) minmax(430px, 1.1fr);
+    }
+}
+
+/* Em janelas estreitas, os blocos passam para uma coluna. A ordem visual
+ * permanece Atributos → Recursos → Características → Perícias → Combate. */
+@media (max-width: 760px) {
+    .eod-overview-main {
+        grid-template-columns: 1fr;
+    }
+}

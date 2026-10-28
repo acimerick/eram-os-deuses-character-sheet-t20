@@ -1,0 +1,212 @@
+/* EOD — Poderes
+ * Os poderes são agrupados pelo campo nativo Item.system.tipo do Tormenta20.
+ * A estrutura de cada Item continua usando os bindings nativos de edição,
+ * exclusão e criação; a camada EOD altera apenas a organização visual.
+ */
+
+.eod-powers {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    min-width: 0;
+    min-height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.eod-powers-content {
+    flex: 1 1 auto;
+    width: 100%;
+    min-width: 0;
+}
+
+.eod-power-group {
+    width: 100%;
+    min-width: 0;
+    margin: 0 0 1rem;
+}
+
+.eod-power-group:last-child {
+    margin-bottom: 0;
+}
+
+.eod-power-group-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    min-height: 2.25rem;
+    margin: 0;
+    padding: 0.3rem 0.65rem;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(70, 55, 35, 0.38);
+    border-bottom: 2px solid rgba(70, 55, 35, 0.48);
+    background: rgba(70, 55, 35, 0.07);
+}
+
+.eod-power-group-heading h3 {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.2;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.eod-power-group-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.35rem;
+    border: 1px solid rgba(70, 55, 35, 0.25);
+    border-radius: 999px;
+    background: rgba(70, 55, 35, 0.07);
+    font-size: 0.72rem;
+    line-height: 1;
+}
+
+.eod-power-list {
+    display: block;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.eod-power-list > .item {
+    display: grid !important;
+    grid-template-columns: minmax(260px, 2fr) minmax(180px, 1.2fr) minmax(110px, 0.8fr) 72px;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    min-height: 2.55rem;
+    margin: 0;
+    padding: 0.3rem 0.5rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgba(70, 55, 35, 0.18);
+}
+
+.eod-power-list > .item-header {
+    min-height: 2.15rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    background: rgba(70, 55, 35, 0.035);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.eod-power-list > .item:not(.item-header):hover {
+    background: rgba(90, 65, 35, 0.08);
+}
+
+.eod-power-list .item-name,
+.eod-power-list .item-type,
+.eod-power-list .item-activation,
+.eod-power-list .item-controls {
+    min-width: 0;
+}
+
+.eod-power-list .item-name {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    overflow: hidden;
+}
+
+.eod-power-list .item-name label {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.eod-power-list .item-image {
+    flex: 0 0 2rem;
+    width: 2rem;
+    height: 2rem;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(60, 45, 30, 0.35);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
+}
+
+.eod-power-list .item-type,
+.eod-power-list .item-activation {
+    padding: 0 0.4rem;
+    overflow: hidden;
+    line-height: 1.2;
+    font-size: 0.82rem;
+}
+
+.eod-power-list .item-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.2rem;
+    min-height: 2rem;
+}
+
+.eod-power-list .item-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.8rem;
+    min-height: 1.8rem;
+}
+
+.eod-powers-create {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.15rem;
+}
+
+.eod-powers-create .item-create {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    min-height: 2rem;
+    padding: 0 0.65rem;
+}
+
+.eod-powers-empty {
+    padding: 1.25rem 0.75rem;
+    text-align: center;
+    opacity: 0.72;
+    font-style: italic;
+}
+
+/* REV.20 — superfície de papel: as listas não recebem a caixa cinza do sistema. */
+.tormenta20.sheet.actor.eod-sheet .eod-power-list {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+@media (max-width: 900px) {
+    .eod-power-list > .item {
+        grid-template-columns: minmax(190px, 2fr) minmax(140px, 1.2fr) minmax(90px, 0.8fr) 58px;
+    }
+}
+
+@media (max-width: 700px) {
+    .eod-power-list > .item {
+        grid-template-columns: minmax(170px, 2fr) minmax(120px, 1.2fr) 58px;
+    }
+
+    .eod-power-list .item-activation {
+        display: none;
+    }
+
+    .eod-power-group-heading {
+        min-height: 2.1rem;
+    }
+}
